@@ -6,7 +6,7 @@ export function SiteFooter() {
       <div className="mx-auto flex max-w-7xl flex-col gap-8 px-5 py-14 md:flex-row md:items-end md:justify-between md:px-8">
         <div>
           <p className="font-display text-4xl font-bold tracking-tight text-mist md:text-5xl">
-            KAIRA
+            NikkiNind
           </p>
           <p className="mt-3 max-w-sm text-sm leading-relaxed text-mist/60">
             Handloom comfort for rooms that look like a moodboard and feel like
@@ -26,7 +26,7 @@ export function SiteFooter() {
         </div>
       </div>
       <div className="border-t border-white/5 px-5 py-4 text-xs text-mist/40 md:px-8">
-        © 2026 KAIRA. Soft architecture for modern homes.
+        © 2026 NikkiNind. Soft architecture for modern homes.
       </div>
     </footer>
   );

@@ -25,10 +25,9 @@ export function SiteNav() {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-5 md:px-8">
         <Link
           href="/"
-          className="font-display text-2xl font-800 tracking-tight text-mist md:text-3xl"
-          style={{ fontWeight: 800 }}
+          className="font-display text-xl font-extrabold tracking-tight text-mist sm:text-2xl md:text-3xl"
         >
-          KAIRA
+          NikkiNind
         </Link>
 
         <nav className="hidden items-center gap-1 rounded-full border border-white/10 bg-ink/60 px-2 py-1.5 backdrop-blur-xl md:flex">

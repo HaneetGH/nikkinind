@@ -6,7 +6,7 @@ import { getContent } from "@/lib/store";
 
 export const metadata: Metadata = {
   title: "Collections",
-  description: "Handloom bedsheets, throws, and decor weaves from KAIRA.",
+  description: "Handloom bedsheets, throws, and decor weaves from NikkiNind.",
 };
 
 export const instant = false;

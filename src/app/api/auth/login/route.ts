@@ -6,6 +6,13 @@ import {
 } from "@/lib/auth";
 
 export async function POST(request: Request) {
+  if (!process.env.NIKKININD_STUDIO_PASSWORD || !process.env.NIKKININD_SESSION_SECRET) {
+    return NextResponse.json(
+      { error: "Studio is not configured. Set NIKKININD_STUDIO_PASSWORD and NIKKININD_SESSION_SECRET." },
+      { status: 503 },
+    );
+  }
+
   const body = (await request.json().catch(() => null)) as {
     password?: string;
   } | null;

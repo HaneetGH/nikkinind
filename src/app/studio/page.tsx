@@ -4,7 +4,7 @@ import { SiteNav } from "@/components/site/site-nav";
 
 export const metadata: Metadata = {
   title: "Studio",
-  description: "KAIRA studio dashboard for designs and journal updates.",
+  description: "NikkiNind studio dashboard for designs and journal updates.",
 };
 
 export default function StudioPage() {

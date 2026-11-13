@@ -1,14 +1,21 @@
 import { cookies } from "next/headers";
 import { createHmac, timingSafeEqual } from "crypto";
 
-export const SESSION_COOKIE = "kaira_studio_session";
+export const SESSION_COOKIE = "nikkinind_studio_session";
 
 function getAdminPassword() {
-  return process.env.KAIRA_STUDIO_PASSWORD || "kaira-studio";
+  return process.env.NIKKININD_STUDIO_PASSWORD || "";
+}
+
+function getSessionSecret() {
+  return process.env.NIKKININD_SESSION_SECRET || "";
 }
 
 function sign(value: string) {
-  const secret = process.env.KAIRA_SESSION_SECRET || "kaira-dev-session-secret";
+  const secret = getSessionSecret();
+  if (!secret) {
+    throw new Error("NIKKININD_SESSION_SECRET is not configured");
+  }
   return createHmac("sha256", secret).update(value).digest("hex");
 }
 
@@ -19,9 +26,15 @@ export function createSessionToken() {
 
 export function verifySessionToken(token: string | undefined): boolean {
   if (!token) return false;
+  if (!getSessionSecret()) return false;
   const [issuedAt, signature] = token.split(".");
   if (!issuedAt || !signature) return false;
-  const expected = sign(issuedAt);
+  let expected: string;
+  try {
+    expected = sign(issuedAt);
+  } catch {
+    return false;
+  }
   try {
     const a = Buffer.from(signature);
     const b = Buffer.from(expected);
@@ -38,6 +51,7 @@ export function verifySessionToken(token: string | undefined): boolean {
 
 export function verifyPassword(password: string) {
   const expected = getAdminPassword();
+  if (!expected) return false;
   const a = Buffer.from(password);
   const b = Buffer.from(expected);
   if (a.length !== b.length) return false;

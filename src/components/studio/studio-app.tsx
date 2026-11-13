@@ -267,8 +267,9 @@ export function StudioApp() {
         </h1>
         <p className="mt-3 text-sm text-mist/60">
           Password-protected dashboard for publishing new designs and journal
-          updates. Default local password:{" "}
-          <code className="text-matcha">kaira-studio</code>
+          updates. Set{" "}
+          <code className="text-matcha">NIKKININD_STUDIO_PASSWORD</code> in
+          your environment to unlock Studio.
         </p>
         <form onSubmit={onLogin} className="mt-8 space-y-4">
           <div className="space-y-2">

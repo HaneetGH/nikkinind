@@ -6,7 +6,7 @@ import { getContent } from "@/lib/store";
 
 export const metadata: Metadata = {
   title: "Journal",
-  description: "Drops, craft notes, and studio updates from KAIRA.",
+  description: "Drops, craft notes, and studio updates from NikkiNind.",
 };
 
 export const instant = false;

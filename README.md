@@ -1,4 +1,4 @@
-# KAIRA
+# NikkiNind
 
 A high-end handloom comfort & decor brand site — soft architecture for modern homes.
 
@@ -14,6 +14,8 @@ No ecommerce yet. The public site tells the product story with Apple-style scrol
 
 ```bash
 npm install
+cp .env.example .env.local
+# Set NIKKININD_STUDIO_PASSWORD and NIKKININD_SESSION_SECRET in .env.local
 npm run dev
 ```
 
@@ -22,14 +24,14 @@ Open [http://localhost:4317](http://localhost:4317).
 ### Studio dashboard
 
 1. Go to `/studio`
-2. Sign in with password `kaira-studio` (override with `KAIRA_STUDIO_PASSWORD`)
+2. Sign in with the password from `NIKKININD_STUDIO_PASSWORD`
 3. Add or edit designs (image URL + copy) and journal updates
 
-Optional env vars:
+Required env vars:
 
 ```bash
-KAIRA_STUDIO_PASSWORD=your-secret
-KAIRA_SESSION_SECRET=long-random-string
+NIKKININD_STUDIO_PASSWORD=your-secret
+NIKKININD_SESSION_SECRET=long-random-string
 ```
 
 Content is stored in `data/content.json` (with an in-memory fallback if the filesystem is read-only).
@@ -42,7 +44,3 @@ Content is stored in `data/content.json` (with an in-memory fallback if the file
 | `/collections` | Full design grid |
 | `/journal` | Studio updates |
 | `/studio` | Admin dashboard |
-
-## Brand note
-
-Starter brand name is **KAIRA**. Swap copy, domain, and seed designs in `data/content.json` when you are ready.

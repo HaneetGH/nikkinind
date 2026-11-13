@@ -21,8 +21,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "KAIRA — Handloom comfort & decor",
-    template: "%s · KAIRA",
+    default: "NikkiNind — Handloom comfort & decor",
+    template: "%s · NikkiNind",
   },
   description:
     "Soft architecture for modern homes. Handloom bedsheets, lived-in comfort, and decor with a pulse.",
