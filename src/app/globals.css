@@ -1,0 +1,152 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-outfit);
+  --font-display: var(--font-syne);
+  --font-mono: var(--font-geist-mono);
+  --font-heading: var(--font-syne);
+  --color-ink: var(--ink);
+  --color-mist: var(--mist);
+  --color-matcha: var(--matcha);
+  --color-foam: var(--foam);
+  --color-river: var(--river);
+  --color-sand: var(--sand);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+  /* Ink forest + matcha — Gen-Z handloom editorial */
+  --ink: #07110e;
+  --mist: #edf2ef;
+  --matcha: #c5d5a8;
+  --foam: #dce7df;
+  --river: #5e8b7e;
+  --sand: #e7e0d4;
+
+  --background: #07110e;
+  --foreground: #edf2ef;
+  --card: #0e1a16;
+  --card-foreground: #edf2ef;
+  --popover: #0e1a16;
+  --popover-foreground: #edf2ef;
+  --primary: #c5d5a8;
+  --primary-foreground: #07110e;
+  --secondary: #13231d;
+  --secondary-foreground: #edf2ef;
+  --muted: #13231d;
+  --muted-foreground: #a7b5ac;
+  --accent: #1a2f27;
+  --accent-foreground: #c5d5a8;
+  --destructive: oklch(0.65 0.2 25);
+  --border: rgb(237 242 239 / 12%);
+  --input: rgb(237 242 239 / 14%);
+  --ring: #c5d5a8;
+  --chart-1: #c5d5a8;
+  --chart-2: #5e8b7e;
+  --chart-3: #e7e0d4;
+  --chart-4: #a7b5ac;
+  --chart-5: #dce7df;
+  --radius: 0.75rem;
+  --sidebar: #0a1612;
+  --sidebar-foreground: #edf2ef;
+  --sidebar-primary: #c5d5a8;
+  --sidebar-primary-foreground: #07110e;
+  --sidebar-accent: #13231d;
+  --sidebar-accent-foreground: #edf2ef;
+  --sidebar-border: rgb(237 242 239 / 10%);
+  --sidebar-ring: #c5d5a8;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    @apply font-sans scroll-smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    background-image:
+      radial-gradient(ellipse 80% 50% at 10% -10%, rgb(94 139 126 / 28%), transparent 55%),
+      radial-gradient(ellipse 60% 40% at 90% 0%, rgb(197 213 168 / 12%), transparent 50%),
+      linear-gradient(180deg, #07110e 0%, #0a1612 40%, #07110e 100%);
+    background-attachment: fixed;
+    min-height: 100%;
+  }
+
+  ::selection {
+    background: rgb(197 213 168 / 35%);
+    color: #edf2ef;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-syne), ui-sans-serif, system-ui, sans-serif;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .grain {
+    position: relative;
+  }
+
+  .grain::after {
+    content: "";
+    pointer-events: none;
+    position: absolute;
+    inset: 0;
+    opacity: 0.05;
+    mix-blend-mode: soft-light;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .mask-fade-r {
+    mask-image: linear-gradient(90deg, #000 70%, transparent);
+  }
+}
