@@ -6,7 +6,7 @@ import { BedBlanketReveal } from "@/components/site/bed-blanket-reveal";
 import { RelatedHandloom } from "@/components/site/related-handloom";
 import { SiteFooter } from "@/components/site/site-footer";
 import { SiteNav } from "@/components/site/site-nav";
-import { designStoryBeats } from "@/lib/designs";
+import { designStoryBeats, makerLabel } from "@/lib/designs";
 import { getContent, getDesignBySlug } from "@/lib/store";
 
 export const instant = false;
@@ -53,11 +53,12 @@ export default async function HandloomPiecePage({ params }: PageProps) {
             <div className="mt-8 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
               <div>
                 <p className="text-xs uppercase tracking-[0.28em] text-matcha">
-                  {design.category} · {design.collection}
+                  {makerLabel(design)} · {design.collection}
                 </p>
                 <h1 className="mt-3 max-w-3xl font-display text-5xl font-bold tracking-tight text-mist md:text-6xl">
                   {design.title}
                 </h1>
+                <p className="mt-2 text-sm text-mist/50">{design.category}</p>
                 <p className="mt-4 max-w-xl text-lg text-mist/65">
                   {design.summary}
                 </p>
@@ -81,7 +82,7 @@ export default async function HandloomPiecePage({ params }: PageProps) {
           image={design.image}
           productName={design.title}
           accent={design.accent}
-          category={design.category}
+          category={makerLabel(design)}
         />
 
         <section className="mx-auto grid max-w-7xl gap-8 px-5 py-20 md:grid-cols-2 md:px-8">
@@ -99,6 +100,19 @@ export default async function HandloomPiecePage({ params }: PageProps) {
           <div className="flex flex-col justify-center gap-8">
             <div>
               <p className="text-xs uppercase tracking-[0.22em] text-matcha">
+                Maker
+              </p>
+              <h2 className="mt-3 font-display text-2xl font-semibold text-mist">
+                {design.maker}
+              </h2>
+              <p className="mt-3 text-mist/65">
+                {design.houseLine
+                  ? "NikkiNind house line — designed and woven for our shelves."
+                  : `Partner handloom brand, curated and sold by NikkiNind.`}
+              </p>
+            </div>
+            <div>
+              <p className="text-xs uppercase tracking-[0.22em] text-matcha">
                 Loom
               </p>
               <h2 className="mt-3 font-display text-2xl font-semibold text-mist">
@@ -111,7 +125,7 @@ export default async function HandloomPiecePage({ params }: PageProps) {
                 Craft note
               </p>
               <h2 className="mt-3 font-display text-2xl font-semibold text-mist">
-                Handloom only
+                Pure handloom
               </h2>
               <p className="mt-3 text-mist/65">{design.detail}</p>
             </div>

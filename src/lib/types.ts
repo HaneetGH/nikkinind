@@ -2,6 +2,10 @@ export type Design = {
   id: string;
   slug: string;
   title: string;
+  /** Label of the textile brand — NikkiNind for house line, or a partner brand. */
+  maker: string;
+  /** true when NikkiNind is the maker; false for curated partner brands. */
+  houseLine: boolean;
   collection: string;
   category: string;
   summary: string;

@@ -81,12 +81,18 @@ export async function upsertDesign(input: DesignInput): Promise<Design> {
       content.designs,
       input.id,
     );
+    const maker = input.maker || existing.maker || "NikkiNind";
     const updated: Design = {
       ...existing,
       ...input,
       id: input.id,
       slug,
       createdAt: existing.createdAt,
+      maker,
+      houseLine:
+        typeof input.houseLine === "boolean"
+          ? input.houseLine
+          : maker === "NikkiNind",
       loom: input.loom || existing.loom,
       origin: input.origin || existing.origin,
       palette: input.palette?.length ? input.palette : existing.palette,
@@ -97,10 +103,16 @@ export async function upsertDesign(input: DesignInput): Promise<Design> {
     return updated;
   }
 
+  const maker = input.maker || "NikkiNind";
   const created: Design = {
     id: `dsgn_${nanoid(8)}`,
     slug: uniqueSlug(input.slug || input.title, content.designs),
     title: input.title,
+    maker,
+    houseLine:
+      typeof input.houseLine === "boolean"
+        ? input.houseLine
+        : maker === "NikkiNind",
     collection: input.collection,
     category: input.category || "Handloom Bedsheet",
     summary: input.summary,

@@ -36,7 +36,8 @@ export function RelatedHandloom({ designs }: RelatedHandloomProps) {
             </div>
             <div className="p-4">
               <p className="text-xs uppercase tracking-[0.18em] text-matcha">
-                {design.category}
+                {design.maker}
+                {design.houseLine ? " · House" : " · Partner"}
               </p>
               <h3 className="mt-1 font-display text-xl font-semibold text-mist">
                 {design.title}

@@ -15,6 +15,8 @@ import type { ContentStore, Design, UpdatePost } from "@/lib/types";
 
 const emptyDesign = {
   title: "",
+  maker: "NikkiNind",
+  houseLine: true,
   collection: "",
   category: "Handloom Bedsheet",
   loom: "",
@@ -128,6 +130,8 @@ export function StudioApp() {
     setEditingDesignId(design.id);
     setDesignForm({
       title: design.title,
+      maker: design.maker,
+      houseLine: design.houseLine,
       collection: design.collection,
       category: design.category,
       loom: design.loom,
@@ -161,6 +165,8 @@ export function StudioApp() {
           payload: {
             id: editingDesignId ?? undefined,
             title: designForm.title,
+            maker: designForm.maker,
+            houseLine: designForm.houseLine,
             collection: designForm.collection,
             category: designForm.category,
             loom: designForm.loom,
@@ -316,8 +322,8 @@ export function StudioApp() {
             Publish handloom weaves
           </h1>
           <p className="mt-2 max-w-xl text-sm text-mist/60">
-            Each weave gets its own page at /handloom/[slug]. Handloom only —
-            image URL + craft notes for now.
+            Add NikkiNind house pieces or partner brands. Each weave gets
+            /handloom/[slug] with maker credit.
           </p>
         </div>
           <div className="flex items-center gap-2">
@@ -373,6 +379,23 @@ export function StudioApp() {
               />
             </div>
             <div className="space-y-2">
+              <Label htmlFor="maker">Maker / brand</Label>
+              <Input
+                id="maker"
+                value={designForm.maker}
+                onChange={(e) => {
+                  const maker = e.target.value;
+                  setDesignForm((f) => ({
+                    ...f,
+                    maker,
+                    houseLine: maker.trim().toLowerCase() === "nikkinind",
+                  }));
+                }}
+                placeholder="NikkiNind or partner brand"
+                required
+              />
+            </div>
+            <div className="space-y-2">
               <Label htmlFor="collection">Collection</Label>
               <Input
                 id="collection"
@@ -383,6 +406,17 @@ export function StudioApp() {
                 required
               />
             </div>
+            <label className="flex items-center gap-2 text-sm text-mist/70">
+              <input
+                type="checkbox"
+                checked={designForm.houseLine}
+                onChange={(e) =>
+                  setDesignForm((f) => ({ ...f, houseLine: e.target.checked }))
+                }
+                className="size-4 rounded border-white/20 bg-transparent"
+              />
+              NikkiNind house line (uncheck for partner brands)
+            </label>
             <div className="space-y-2">
               <Label htmlFor="category">Category</Label>
               <Input
@@ -510,12 +544,19 @@ export function StudioApp() {
                 <div className="space-y-3 p-4">
                   <div className="flex items-start justify-between gap-2">
                     <div>
-                      <p className="text-xs text-matcha">{design.collection}</p>
+                      <p className="text-xs text-matcha">
+                        {design.maker} · {design.collection}
+                      </p>
                       <h3 className="font-display text-lg font-semibold text-mist">
                         {design.title}
                       </h3>
                     </div>
-                    {design.featured ? <Badge>Featured</Badge> : null}
+                    <div className="flex flex-col items-end gap-1">
+                      <Badge variant={design.houseLine ? "default" : "secondary"}>
+                        {design.houseLine ? "House" : "Partner"}
+                      </Badge>
+                      {design.featured ? <Badge>Featured</Badge> : null}
+                    </div>
                   </div>
                   <p className="line-clamp-2 text-sm text-mist/55">
                     {design.summary}

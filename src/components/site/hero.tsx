@@ -89,7 +89,7 @@ export function Hero({ brand, tagline, subtitle, image }: HeroProps) {
               href="/handloom/moonloom-stripe"
               className="rounded-full border border-white/20 px-6 py-3 text-sm font-medium text-mist transition hover:border-matcha/50 hover:text-matcha"
             >
-              Open a weave
+              House line: Moonloom
             </Link>
           </motion.div>
         </div>

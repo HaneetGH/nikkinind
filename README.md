@@ -1,14 +1,14 @@
 # NikkiNind
 
-Handloom-only brand site. Each weave lives on its own page with an Apple-style scroll story.
+Handloom house site. **NikkiNind** sells our own weaves **and** curated handloom from partner brands. Each piece lives on its own page with an Apple-style bed/blanket scroll story.
 
-No ecommerce yet. **Studio** is a password-protected dashboard for publishing new handloom designs and journal updates.
+No ecommerce yet. **Studio** is a password-protected dashboard for publishing house and partner designs plus journal updates.
 
 ## Stack
 
 - Next.js (App Router) + TypeScript
 - Tailwind CSS + shadcn/ui
-- Framer Motion (per-weave sticky product story)
+- Framer Motion (per-weave sticky bed/blanket reveal)
 
 ## Run locally
 
@@ -24,22 +24,16 @@ Open [http://localhost:4317](http://localhost:4317).
 ### Studio dashboard
 
 1. Go to `/studio`
-2. Sign in with the password from `NIKKININD_STUDIO_PASSWORD`
-3. Publish a handloom weave — it gets `/handloom/[slug]` automatically
-
-Required env vars:
-
-```bash
-NIKKININD_STUDIO_PASSWORD=your-secret
-NIKKININD_SESSION_SECRET=long-random-string
-```
+2. Sign in with `NIKKININD_STUDIO_PASSWORD`
+3. Publish a house or partner weave — it gets `/handloom/[slug]` with maker credit
 
 ## Pages
 
 | Route | Purpose |
 | --- | --- |
-| `/` | Brand hub + links into every handloom piece |
-| `/handloom` | Full handloom index |
-| `/handloom/[slug]` | Individual weave page (scroll story + loom notes) |
+| `/` | Brand hub + links into every weave |
+| `/handloom` | Full catalog (house + partners) |
+| `/handloom/[slug]` | Individual weave page |
+| `/collections` | Alias of the handloom catalog |
 | `/journal` | Studio updates |
 | `/studio` | Admin dashboard |

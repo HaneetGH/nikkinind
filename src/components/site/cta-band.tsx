@@ -19,11 +19,11 @@ export function CtaBand() {
             Coming soon
           </p>
           <h2 className="mt-4 font-display text-4xl font-bold tracking-tight text-mist md:text-5xl">
-            Handloom now. Shop later.
+            House line + partners. Shop later.
           </h2>
           <p className="mt-4 text-base text-mist/65 md:text-lg">
-            Ecommerce is on the way. Until then, open each handloom piece, scroll
-            its story, and publish new weaves from Studio.
+            Ecommerce is on the way. Until then, browse NikkiNind weaves and
+            partner handloom brands — each with its own scroll story in Studio.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link

@@ -12,6 +12,12 @@ export function designHref(design: Pick<Design, "slug">) {
   return `/handloom/${design.slug}`;
 }
 
+export function makerLabel(design: Pick<Design, "maker" | "houseLine">) {
+  return design.houseLine
+    ? `${design.maker} · House line`
+    : `${design.maker} · Partner brand`;
+}
+
 export function designStoryBeats(design: Design): StoryBeat[] {
   if (design.beats?.length) return design.beats;
 
@@ -21,6 +27,14 @@ export function designStoryBeats(design: Design): StoryBeat[] {
       label: "The look",
       title: design.title,
       copy: design.summary,
+    },
+    {
+      id: `${design.id}_maker`,
+      label: "The maker",
+      title: design.maker,
+      copy: design.houseLine
+        ? "NikkiNind house line — designed and woven for our own shelves."
+        : `Partner handloom from ${design.maker}, curated and sold by NikkiNind.`,
     },
     {
       id: `${design.id}_craft`,
@@ -33,12 +47,6 @@ export function designStoryBeats(design: Design): StoryBeat[] {
       label: "The loom",
       title: design.loom,
       copy: design.origin,
-    },
-    {
-      id: `${design.id}_palette`,
-      label: "The palette",
-      title: design.collection,
-      copy: `Woven in ${design.palette.join(", ")} — a handloom palette made for real bedrooms.`,
     },
   ];
 }

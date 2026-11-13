@@ -21,11 +21,11 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "NikkiNind — Handloom comfort & decor",
+    default: "NikkiNind — Handloom house",
     template: "%s · NikkiNind",
   },
   description:
-    "Handloom textiles for modern beds. Each NikkiNind weave has its own page and scroll story.",
+    "NikkiNind sells our own handloom weaves and curated partner brands. Each piece has its own page and scroll story.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
