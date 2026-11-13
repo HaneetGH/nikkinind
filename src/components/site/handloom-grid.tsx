@@ -1,8 +1,5 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { designHref, makerLabel } from "@/lib/designs";
 import type { Design } from "@/lib/types";
 
@@ -48,67 +45,60 @@ export function HandloomGrid({
       </div>
 
       <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {designs.map((design, index) => (
-          <motion.div
+        {designs.map((design) => (
+          <Link
             key={design.id}
-            initial={{ opacity: 0, y: 18 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ delay: index * 0.04, duration: 0.45 }}
+            href={designHref(design)}
+            className="group block overflow-hidden rounded-[1.35rem] border border-white/10 bg-white/[0.035] transition hover:border-matcha/40 hover:-translate-y-0.5"
           >
-            <Link
-              href={designHref(design)}
-              className="group block overflow-hidden rounded-[1.35rem] border border-white/10 bg-white/[0.035] transition hover:border-matcha/40"
-            >
-              <div className="relative aspect-[4/5] overflow-hidden">
-                <Image
-                  src={design.image}
-                  alt={`${design.title} by ${design.maker}`}
-                  fill
-                  className="object-cover transition duration-700 group-hover:scale-105"
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/25 to-transparent" />
-                <span
-                  className={`absolute left-3 top-3 rounded-full px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.14em] ${
-                    design.houseLine
-                      ? "bg-matcha text-ink"
-                      : "border border-white/25 bg-ink/75 text-mist"
-                  }`}
-                >
-                  {design.houseLine ? "House" : "Partner"}
-                </span>
-                <div className="absolute inset-x-0 bottom-0 p-4">
-                  <p className="text-[10px] uppercase tracking-[0.18em] text-matcha">
-                    {design.maker}
-                  </p>
-                  <h3 className="mt-1 font-display text-xl font-semibold text-mist transition group-hover:text-matcha">
-                    {design.title}
-                  </h3>
-                  <p className="mt-1 line-clamp-2 text-sm text-mist/65">
-                    {design.summary}
-                  </p>
-                  <div className="mt-3 flex items-center justify-between gap-2">
-                    <div className="flex gap-1.5">
-                      {design.palette.slice(0, 3).map((swatch) => (
-                        <span
-                          key={swatch}
-                          className="h-2.5 w-2.5 rounded-full border border-white/20"
-                          style={{ backgroundColor: swatch }}
-                        />
-                      ))}
-                    </div>
-                    <span className="text-xs text-mist/45">
-                      {design.category.replace("Handloom ", "")}
-                    </span>
+            <div className="relative aspect-[4/5] overflow-hidden">
+              <Image
+                src={design.image}
+                alt={`${design.title} by ${design.maker}`}
+                fill
+                className="object-cover transition duration-700 group-hover:scale-105"
+                sizes="(max-width: 768px) 100vw, 33vw"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/25 to-transparent" />
+              <span
+                className={`absolute left-3 top-3 rounded-full px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.14em] ${
+                  design.houseLine
+                    ? "bg-matcha text-ink"
+                    : "border border-white/25 bg-ink/75 text-mist"
+                }`}
+              >
+                {design.houseLine ? "House" : "Partner"}
+              </span>
+              <div className="absolute inset-x-0 bottom-0 p-4">
+                <p className="text-[10px] uppercase tracking-[0.18em] text-matcha">
+                  {design.maker}
+                </p>
+                <h3 className="mt-1 font-display text-xl font-semibold text-mist transition group-hover:text-matcha">
+                  {design.title}
+                </h3>
+                <p className="mt-1 line-clamp-2 text-sm text-mist/65">
+                  {design.summary}
+                </p>
+                <div className="mt-3 flex items-center justify-between gap-2">
+                  <div className="flex gap-1.5">
+                    {design.palette.slice(0, 3).map((swatch) => (
+                      <span
+                        key={swatch}
+                        className="h-2.5 w-2.5 rounded-full border border-white/20"
+                        style={{ backgroundColor: swatch }}
+                      />
+                    ))}
                   </div>
+                  <span className="text-xs text-mist/45">
+                    {design.category.replace("Handloom ", "")}
+                  </span>
                 </div>
               </div>
-              <div className="border-t border-white/5 px-4 py-3 text-xs text-mist/45">
-                {makerLabel(design)} · {design.collection}
-              </div>
-            </Link>
-          </motion.div>
+            </div>
+            <div className="border-t border-white/5 px-4 py-3 text-xs text-mist/45">
+              {makerLabel(design)} · {design.collection}
+            </div>
+          </Link>
         ))}
       </div>
     </section>

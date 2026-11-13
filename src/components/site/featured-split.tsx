@@ -1,8 +1,5 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { designHref, makerLabel } from "@/lib/designs";
 import type { Design } from "@/lib/types";
 
@@ -14,12 +11,7 @@ type FeaturedSplitProps = {
 export function FeaturedSplit({ featured, side }: FeaturedSplitProps) {
   return (
     <section className="mx-auto grid max-w-7xl gap-6 px-5 py-16 md:grid-cols-12 md:gap-8 md:px-8 md:py-20">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        className="md:col-span-7"
-      >
+      <div className="md:col-span-7">
         <Link
           href={designHref(featured)}
           className="group relative block overflow-hidden rounded-[1.75rem] border border-white/10"
@@ -51,7 +43,7 @@ export function FeaturedSplit({ featured, side }: FeaturedSplitProps) {
             </div>
           </div>
         </Link>
-      </motion.div>
+      </div>
 
       <div className="flex flex-col gap-4 md:col-span-5">
         <div className="mb-1">
@@ -62,40 +54,33 @@ export function FeaturedSplit({ featured, side }: FeaturedSplitProps) {
             Partners & house picks
           </h3>
         </div>
-        {side.map((design, index) => (
-          <motion.div
+        {side.map((design) => (
+          <Link
             key={design.id}
-            initial={{ opacity: 0, x: 16 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: index * 0.06 }}
+            href={designHref(design)}
+            className="group flex gap-4 overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04] p-3 transition hover:border-matcha/40"
           >
-            <Link
-              href={designHref(design)}
-              className="group flex gap-4 overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04] p-3 transition hover:border-matcha/40"
-            >
-              <div className="relative h-28 w-24 shrink-0 overflow-hidden rounded-xl">
-                <Image
-                  src={design.image}
-                  alt={design.title}
-                  fill
-                  className="object-cover transition duration-500 group-hover:scale-105"
-                  sizes="96px"
-                />
-              </div>
-              <div className="flex min-w-0 flex-1 flex-col justify-center py-1">
-                <p className="text-[10px] uppercase tracking-[0.18em] text-matcha">
-                  {design.houseLine ? "House" : "Partner"} · {design.maker}
-                </p>
-                <h4 className="mt-1 truncate font-display text-xl font-semibold text-mist">
-                  {design.title}
-                </h4>
-                <p className="mt-1 line-clamp-2 text-sm text-mist/55">
-                  {design.summary}
-                </p>
-              </div>
-            </Link>
-          </motion.div>
+            <div className="relative h-28 w-24 shrink-0 overflow-hidden rounded-xl">
+              <Image
+                src={design.image}
+                alt={design.title}
+                fill
+                className="object-cover transition duration-500 group-hover:scale-105"
+                sizes="96px"
+              />
+            </div>
+            <div className="flex min-w-0 flex-1 flex-col justify-center py-1">
+              <p className="text-[10px] uppercase tracking-[0.18em] text-matcha">
+                {design.houseLine ? "House" : "Partner"} · {design.maker}
+              </p>
+              <h4 className="mt-1 truncate font-display text-xl font-semibold text-mist">
+                {design.title}
+              </h4>
+              <p className="mt-1 line-clamp-2 text-sm text-mist/55">
+                {design.summary}
+              </p>
+            </div>
+          </Link>
         ))}
         <Link
           href="/handloom"

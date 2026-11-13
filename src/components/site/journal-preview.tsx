@@ -1,7 +1,4 @@
-"use client";
-
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { FormatDate } from "@/components/site/format-date";
 import type { UpdatePost } from "@/lib/types";
 
@@ -38,13 +35,9 @@ export function JournalPreview({ updates }: JournalPreviewProps) {
       </div>
 
       <div className="mt-8 grid gap-4 md:grid-cols-3">
-        {updates.slice(0, 3).map((update, index) => (
-          <motion.article
+        {updates.slice(0, 3).map((update) => (
+          <article
             key={update.id}
-            initial={{ opacity: 0, y: 18 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ delay: index * 0.06, duration: 0.45 }}
             className="rounded-[1.25rem] border border-white/10 bg-white/[0.04] p-5"
           >
             <div className="flex items-center justify-between gap-3">
@@ -61,7 +54,7 @@ export function JournalPreview({ updates }: JournalPreviewProps) {
             <p className="mt-2 line-clamp-4 text-sm leading-relaxed text-mist/60">
               {update.body}
             </p>
-          </motion.article>
+          </article>
         ))}
       </div>
     </section>
