@@ -5,13 +5,13 @@ import { motion } from "framer-motion";
 
 export function CtaBand() {
   return (
-    <section className="px-5 pb-28 md:px-8">
+    <section className="px-5 pb-16 md:px-8 md:pb-20">
       <motion.div
         initial={{ opacity: 0, scale: 0.97 }}
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true, amount: 0.4 }}
         transition={{ duration: 0.6 }}
-        className="relative mx-auto max-w-7xl overflow-hidden rounded-[2rem] border border-white/10 px-8 py-16 md:px-16 md:py-20"
+        className="relative mx-auto max-w-7xl overflow-hidden rounded-[1.75rem] border border-white/10 px-7 py-12 md:px-14 md:py-14"
       >
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(197,213,168,0.22),transparent_45%),radial-gradient(circle_at_80%_80%,rgba(94,139,126,0.25),transparent_40%)]" />
         <div className="relative z-10 max-w-2xl">

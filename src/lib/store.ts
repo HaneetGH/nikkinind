@@ -51,9 +51,14 @@ async function writeToDisk(data: ContentStore): Promise<boolean> {
 
 export async function getContent(): Promise<ContentStore> {
   await connection();
-  if (memoryCache) return structuredClone(memoryCache);
+  // Prefer disk so seed/content edits and Studio writes stay in sync.
   const disk = await readFromDisk();
-  memoryCache = disk ?? cloneSeed();
+  if (disk) {
+    memoryCache = disk;
+    return structuredClone(disk);
+  }
+  if (memoryCache) return structuredClone(memoryCache);
+  memoryCache = cloneSeed();
   return structuredClone(memoryCache);
 }
 
