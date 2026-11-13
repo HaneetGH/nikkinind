@@ -56,7 +56,7 @@ export default async function HomePage() {
           featured={strip}
         />
         <BrandMarquee />
-        <FeaturedSplit featured={featured} side={side} />
+        <FeaturedSplit featured={featured} side={side.slice(0, 4)} />
         <MakersBand designs={designs} />
         <HandloomGrid
           designs={designs}

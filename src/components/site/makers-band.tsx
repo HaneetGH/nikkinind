@@ -20,7 +20,7 @@ export function MakersBand({ designs }: MakersBandProps) {
   );
 
   return (
-    <section className="border-y border-white/10 bg-[#0a1612] px-5 py-16 md:px-8 md:py-20">
+    <section className="border-y border-white/10 bg-[#0a1612] px-5 py-12 md:px-8 md:py-14">
       <div className="mx-auto max-w-7xl">
         <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>

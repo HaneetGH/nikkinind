@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { CatalogStats } from "@/components/site/catalog-stats";
 import { HandloomGrid } from "@/components/site/handloom-grid";
 import { SiteFooter } from "@/components/site/site-footer";
 import { SiteNav } from "@/components/site/site-nav";
@@ -28,23 +29,26 @@ export default async function HandloomIndexPage({ searchParams }: PageProps) {
         : all;
   const house = all.filter((d) => d.houseLine).length;
   const partners = all.length - house;
+  const collections = new Set(all.map((d) => d.collection)).size;
+  const makers = new Set(all.map((d) => d.maker)).size;
 
   return (
     <>
       <SiteNav />
       <main className="flex-1 pt-16">
-        <div className="mx-auto max-w-7xl px-5 pt-10 md:px-8 md:pt-12">
+        <div className="mx-auto max-w-7xl px-5 pt-8 md:px-8 md:pt-10">
           <p className="text-xs uppercase tracking-[0.28em] text-matcha/80">
             Handloom house
           </p>
-          <h1 className="mt-3 max-w-3xl font-display text-4xl font-bold tracking-tight text-mist md:text-6xl">
+          <h1 className="mt-3 max-w-3xl font-display text-4xl font-bold tracking-tight text-mist md:text-5xl lg:text-6xl">
             Our weaves. Partner brands. One craft.
           </h1>
-          <p className="mt-4 max-w-2xl text-mist/60">
-            NikkiNind sells handloom we make and handloom we curate. {house}{" "}
-            house-line · {partners} partner · {all.length} total.
+          <p className="mt-3 max-w-2xl text-mist/60">
+            NikkiNind sells handloom we make and handloom we curate. Browse the
+            full edit — each piece opens into its own bed-and-blanket scroll
+            story.
           </p>
-          <div className="mt-6 flex flex-wrap gap-2">
+          <div className="mt-5 flex flex-wrap gap-2">
             {[
               { href: "/handloom", label: "All", active: !filter },
               {
@@ -71,6 +75,14 @@ export default async function HandloomIndexPage({ searchParams }: PageProps) {
               </a>
             ))}
           </div>
+        </div>
+        <div className="mt-8">
+          <CatalogStats
+            house={house}
+            partners={partners}
+            collections={collections}
+            makers={makers}
+          />
         </div>
         <HandloomGrid
           designs={designs}

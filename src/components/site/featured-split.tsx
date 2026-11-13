@@ -10,7 +10,7 @@ type FeaturedSplitProps = {
 
 export function FeaturedSplit({ featured, side }: FeaturedSplitProps) {
   return (
-    <section className="mx-auto grid max-w-7xl gap-6 px-5 py-16 md:grid-cols-12 md:gap-8 md:px-8 md:py-20">
+    <section className="mx-auto grid max-w-7xl gap-6 px-5 py-12 md:grid-cols-12 md:gap-8 md:px-8 md:py-14">
       <div className="md:col-span-7">
         <Link
           href={designHref(featured)}
