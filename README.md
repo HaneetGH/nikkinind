@@ -1,14 +1,14 @@
 # NikkiNind
 
-A high-end handloom comfort & decor brand site — soft architecture for modern homes.
+Handloom-only brand site. Each weave lives on its own page with an Apple-style scroll story.
 
-No ecommerce yet. The public site tells the product story with Apple-style scroll animation; **Studio** is a password-protected dashboard for publishing new designs and journal updates.
+No ecommerce yet. **Studio** is a password-protected dashboard for publishing new handloom designs and journal updates.
 
 ## Stack
 
 - Next.js (App Router) + TypeScript
 - Tailwind CSS + shadcn/ui
-- Framer Motion (sticky product story + horizontal gallery)
+- Framer Motion (per-weave sticky product story)
 
 ## Run locally
 
@@ -25,7 +25,7 @@ Open [http://localhost:4317](http://localhost:4317).
 
 1. Go to `/studio`
 2. Sign in with the password from `NIKKININD_STUDIO_PASSWORD`
-3. Add or edit designs (image URL + copy) and journal updates
+3. Publish a handloom weave — it gets `/handloom/[slug]` automatically
 
 Required env vars:
 
@@ -34,13 +34,12 @@ NIKKININD_STUDIO_PASSWORD=your-secret
 NIKKININD_SESSION_SECRET=long-random-string
 ```
 
-Content is stored in `data/content.json` (with an in-memory fallback if the filesystem is read-only).
-
 ## Pages
 
 | Route | Purpose |
 | --- | --- |
-| `/` | Hero, Apple-style product scroll story, sliding gallery, journal preview |
-| `/collections` | Full design grid |
+| `/` | Brand hub + links into every handloom piece |
+| `/handloom` | Full handloom index |
+| `/handloom/[slug]` | Individual weave page (scroll story + loom notes) |
 | `/journal` | Studio updates |
 | `/studio` | Admin dashboard |

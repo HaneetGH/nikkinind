@@ -1,15 +1,19 @@
 export type Design = {
   id: string;
+  slug: string;
   title: string;
   collection: string;
   category: string;
   summary: string;
   detail: string;
+  loom: string;
+  origin: string;
   palette: string[];
   accent: string;
   image: string;
   featured: boolean;
   createdAt: string;
+  beats?: StoryBeat[];
 };
 
 export type UpdatePost = {
@@ -37,11 +41,11 @@ export type ContentStore = {
   site: SiteInfo;
   designs: Design[];
   updates: UpdatePost[];
-  storyBeats: StoryBeat[];
 };
 
-export type DesignInput = Omit<Design, "id" | "createdAt"> & {
+export type DesignInput = Omit<Design, "id" | "createdAt" | "slug"> & {
   id?: string;
+  slug?: string;
   createdAt?: string;
 };
 

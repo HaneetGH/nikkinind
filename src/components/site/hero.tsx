@@ -80,16 +80,16 @@ export function Hero({ brand, tagline, subtitle, image }: HeroProps) {
             className="mt-8 flex flex-wrap items-center gap-3"
           >
             <Link
-              href="/collections"
+              href="/handloom"
               className="rounded-full bg-matcha px-6 py-3 text-sm font-semibold text-ink transition hover:bg-foam"
             >
-              See the collection
+              Browse handloom
             </Link>
             <Link
-              href="#story"
+              href="/handloom/moonloom-stripe"
               className="rounded-full border border-white/20 px-6 py-3 text-sm font-medium text-mist transition hover:border-matcha/50 hover:text-matcha"
             >
-              Scroll the story
+              Open a weave
             </Link>
           </motion.div>
         </div>

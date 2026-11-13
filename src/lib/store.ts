@@ -2,6 +2,7 @@ import { promises as fs } from "fs";
 import path from "path";
 import { nanoid } from "nanoid";
 import { connection } from "next/server";
+import { slugify } from "@/lib/designs";
 import type {
   ContentStore,
   Design,
@@ -17,6 +18,16 @@ let memoryCache: ContentStore | null = null;
 
 function cloneSeed(): ContentStore {
   return structuredClone(seed as ContentStore);
+}
+
+function uniqueSlug(base: string, designs: Design[], ignoreId?: string) {
+  let slug = slugify(base) || `weave-${nanoid(6)}`;
+  let n = 2;
+  while (designs.some((d) => d.slug === slug && d.id !== ignoreId)) {
+    slug = `${slugify(base)}-${n}`;
+    n += 1;
+  }
+  return slug;
 }
 
 async function readFromDisk(): Promise<ContentStore | null> {
@@ -39,12 +50,16 @@ async function writeToDisk(data: ContentStore): Promise<boolean> {
 }
 
 export async function getContent(): Promise<ContentStore> {
-  // Studio edits must show on the live site — read at request time.
   await connection();
   if (memoryCache) return structuredClone(memoryCache);
   const disk = await readFromDisk();
   memoryCache = disk ?? cloneSeed();
   return structuredClone(memoryCache);
+}
+
+export async function getDesignBySlug(slug: string): Promise<Design | null> {
+  const content = await getContent();
+  return content.designs.find((d) => d.slug === slug) ?? null;
 }
 
 async function persist(next: ContentStore): Promise<ContentStore> {
@@ -60,12 +75,22 @@ export async function upsertDesign(input: DesignInput): Promise<Design> {
   if (input.id) {
     const idx = content.designs.findIndex((d) => d.id === input.id);
     if (idx === -1) throw new Error("Design not found");
+    const existing = content.designs[idx];
+    const slug = uniqueSlug(
+      input.slug || input.title || existing.title,
+      content.designs,
+      input.id,
+    );
     const updated: Design = {
-      ...content.designs[idx],
+      ...existing,
       ...input,
       id: input.id,
-      createdAt: content.designs[idx].createdAt,
-      palette: input.palette?.length ? input.palette : content.designs[idx].palette,
+      slug,
+      createdAt: existing.createdAt,
+      loom: input.loom || existing.loom,
+      origin: input.origin || existing.origin,
+      palette: input.palette?.length ? input.palette : existing.palette,
+      category: input.category || existing.category || "Handloom Bedsheet",
     };
     content.designs[idx] = updated;
     await persist(content);
@@ -74,11 +99,14 @@ export async function upsertDesign(input: DesignInput): Promise<Design> {
 
   const created: Design = {
     id: `dsgn_${nanoid(8)}`,
+    slug: uniqueSlug(input.slug || input.title, content.designs),
     title: input.title,
     collection: input.collection,
-    category: input.category,
+    category: input.category || "Handloom Bedsheet",
     summary: input.summary,
     detail: input.detail,
+    loom: input.loom || "Handloom",
+    origin: input.origin || "Handwoven in small batches.",
     palette: input.palette?.length ? input.palette : ["#0B1210", "#C9D4C6"],
     accent: input.accent || "#C9D4C6",
     image: input.image,

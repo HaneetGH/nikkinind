@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 
 const links = [
   { href: "/", label: "Home" },
-  { href: "/collections", label: "Collections" },
+  { href: "/handloom", label: "Handloom" },
   { href: "/journal", label: "Journal" },
   { href: "/studio", label: "Studio" },
 ];
@@ -74,10 +74,10 @@ export function SiteNav() {
             })}
           </nav>
           <Link
-            href="/collections"
+            href="/handloom"
             className="hidden rounded-full border border-matcha/40 bg-matcha/10 px-4 py-2 text-sm font-medium text-matcha backdrop-blur-md transition hover:bg-matcha hover:text-ink sm:inline-flex md:px-5"
           >
-            Explore
+            Weaves
           </Link>
         </div>
       </div>

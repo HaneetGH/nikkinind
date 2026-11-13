@@ -1,17 +1,20 @@
 {
   "site": {
     "brand": "NikkiNind",
-    "tagline": "Soft architecture for modern homes.",
-    "subtitle": "Handloom bedsheets, lived-in comfort, and decor with a pulse."
+    "tagline": "Handloom textiles for modern beds.",
+    "subtitle": "One craft only — handloom. Each weave gets its own page, its own story, its own scroll."
   },
   "designs": [
     {
       "id": "dsgn_moonloom",
+      "slug": "moonloom-stripe",
       "title": "Moonloom Stripe",
       "collection": "Night Ritual",
-      "category": "Bedsheet",
-      "summary": "Cloud-soft cotton with graphite stripes that catch morning light.",
-      "detail": "Woven on a 120-year-old pit loom in Karur. Washed six times for that lived-in drape Gen-Z bedrooms actually want.",
+      "category": "Handloom Bedsheet",
+      "summary": "Cloud-soft handloom cotton with graphite stripes that catch morning light.",
+      "detail": "Woven on a pit loom in dense cotton. Washed six times for that lived-in drape — still crisp enough to hold a fold.",
+      "loom": "120-year-old pit loom",
+      "origin": "Handwoven in Karur. Graphite warp, mist weft, matcha selvedge stitch.",
       "palette": ["#0B1210", "#C9D4C6", "#8FA38F"],
       "accent": "#C9D4C6",
       "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=1600&q=80",
@@ -20,11 +23,14 @@
     },
     {
       "id": "dsgn_saffron_mist",
+      "slug": "saffron-mist",
       "title": "Saffron Mist",
       "collection": "Day Glow",
-      "category": "Duvet Cover",
-      "summary": "Warm saffron warp meets mist-grey weft — sunshine, softened.",
+      "category": "Handloom Duvet Cover",
+      "summary": "Warm saffron warp meets mist-grey weft — sunshine, softened on the loom.",
       "detail": "A limited handloom run with floating selvedge and tonal embroidery along the cuff.",
+      "loom": "Frame loom, slow pick",
+      "origin": "Handwoven in small batches. Saffron yarn dyed with natural plant color.",
       "palette": ["#E8C48A", "#F2EDE6", "#5C5346"],
       "accent": "#E8C48A",
       "image": "https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=1600&q=80",
@@ -33,11 +39,14 @@
     },
     {
       "id": "dsgn_ink_garden",
+      "slug": "ink-garden",
       "title": "Ink Garden",
       "collection": "Quiet Luxe",
-      "category": "Cushion Set",
-      "summary": "Botanical block prints on charcoal linen — gallery walls, but softer.",
-      "detail": "Natural dyes, hand-blocked motifs, and a slightly irregular weave that photographs like art.",
+      "category": "Handloom Bedsheet",
+      "summary": "Botanical motifs on charcoal handloom cotton — gallery quiet, bed soft.",
+      "detail": "Natural dyes and hand-blocked motifs on a slightly irregular handloom weave that photographs like art.",
+      "loom": "Pit loom + block print",
+      "origin": "Woven first, then block-printed by hand so every sheet lands a little differently.",
       "palette": ["#101816", "#A7B9A2", "#DCE5D8"],
       "accent": "#A7B9A2",
       "image": "https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?auto=format&fit=crop&w=1600&q=80",
@@ -46,11 +55,14 @@
     },
     {
       "id": "dsgn_river_check",
+      "slug": "river-check",
       "title": "River Check",
       "collection": "Weekend Edit",
-      "category": "Throw",
+      "category": "Handloom Throw",
       "summary": "Oversized checks in river blue and foam — throw it, layer it, live in it.",
-      "detail": "Lightweight khadi with a brushed face. Designed to look intentional on a messy bed.",
+      "detail": "Lightweight handloom khadi with a brushed face. Designed to look intentional on a messy bed.",
+      "loom": "Khadi handloom",
+      "origin": "Spun and woven by hand. Soft check that still reads sharp on camera.",
       "palette": ["#2E4A5E", "#D7E2E8", "#F7F5F1"],
       "accent": "#2E4A5E",
       "image": "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=1600&q=80",
@@ -59,11 +71,14 @@
     },
     {
       "id": "dsgn_petal_grid",
+      "slug": "petal-grid",
       "title": "Petal Grid",
       "collection": "Day Glow",
-      "category": "Bedsheet",
-      "summary": "A micro-grid of blush petals on bone cotton — romantic, never fussy.",
-      "detail": "Percale handfeel with a matte finish. Pair with bare walls and one loud playlist.",
+      "category": "Handloom Bedsheet",
+      "summary": "A micro-grid of blush petals on bone handloom cotton — romantic, never fussy.",
+      "detail": "Percale handfeel from a dense handloom sett. Matte finish, soft hand, clean lines.",
+      "loom": "High-density pit loom",
+      "origin": "Bone cotton warp with blush petal weft accents, woven end to end by hand.",
       "palette": ["#E7C9C2", "#F6F1EC", "#6E5A55"],
       "accent": "#E7C9C2",
       "image": "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1600&q=80",
@@ -72,11 +87,14 @@
     },
     {
       "id": "dsgn_loom_noir",
+      "slug": "loom-noir",
       "title": "Loom Noir",
       "collection": "Quiet Luxe",
-      "category": "Bedsheet",
+      "category": "Handloom Bedsheet",
       "summary": "Near-black handloom with a satin-sheen stripe that only shows when you move.",
-      "detail": "For the moody bedroom. Dense weave, cool touch, maximal drama with zero clutter.",
+      "detail": "For the moody bedroom. Dense handloom weave, cool touch, maximal drama with zero clutter.",
+      "loom": "Dense satin-stripe loom",
+      "origin": "Near-black yarn, hand-picked for depth. The stripe appears only in motion.",
       "palette": ["#0A0C0B", "#3A3F3C", "#B8C2BA"],
       "accent": "#B8C2BA",
       "image": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=1600&q=80",
@@ -94,43 +112,17 @@
     },
     {
       "id": "upd_night_ritual",
-      "title": "Dropping Night Ritual — a quieter palette",
-      "body": "Graphite, fog, and one sharp matcha stitch. Night Ritual is for rooms that glow after midnight and still look editorial at noon.",
+      "title": "Dropping Night Ritual — a quieter handloom palette",
+      "body": "Graphite, fog, and one sharp matcha stitch. Night Ritual is pure handloom for rooms that glow after midnight and still look editorial at noon.",
       "tag": "Drop",
       "publishedAt": "2026-03-14T09:00:00.000Z"
     },
     {
-      "id": "upd_decor_edit",
-      "title": "Decor edit: cushions that act like sculpture",
-      "body": "We’re expanding beyond beds. Ink Garden cushions are block-printed in small batches — each motif lands slightly differently. That’s the point.",
-      "tag": "Decor",
+      "id": "upd_loom_only",
+      "title": "Handloom only — and every weave gets a page",
+      "body": "NikkiNind is not a decor dump. We only make handloom textiles, and each piece now lives on its own page with its own scroll story — loom, origin, palette, feel.",
+      "tag": "Handloom",
       "publishedAt": "2026-03-24T09:00:00.000Z"
-    }
-  ],
-  "storyBeats": [
-    {
-      "id": "beat_feel",
-      "label": "The feel",
-      "title": "Soft that still has structure.",
-      "copy": "NikkiNind cotton holds shape on the bed and melts when you lie down — the sweet spot between crisp hotel and cloud hoodie."
-    },
-    {
-      "id": "beat_weave",
-      "label": "The weave",
-      "title": "Handloom, not handmade excuses.",
-      "copy": "Every metre is woven by craftspeople who treat rhythm like music. Irregularities aren’t flaws — they’re proof of touch."
-    },
-    {
-      "id": "beat_palette",
-      "label": "The palette",
-      "title": "Colors that photograph like a moodboard.",
-      "copy": "Muted matcha, ink, saffron mist, river check. Designed for rooms that live on camera and in real life."
-    },
-    {
-      "id": "beat_ritual",
-      "label": "The ritual",
-      "title": "Make the bed feel like a product launch.",
-      "copy": "Layer, fold, mess it up. Our sets are built for the five-second reel and the eight-hour sleep."
     }
   ]
 }

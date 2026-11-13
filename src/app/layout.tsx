@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     template: "%s · NikkiNind",
   },
   description:
-    "Soft architecture for modern homes. Handloom bedsheets, lived-in comfort, and decor with a pulse.",
+    "Handloom textiles for modern beds. Each NikkiNind weave has its own page and scroll story.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

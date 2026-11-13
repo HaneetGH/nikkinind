@@ -9,13 +9,13 @@ export function SiteFooter() {
             NikkiNind
           </p>
           <p className="mt-3 max-w-sm text-sm leading-relaxed text-mist/60">
-            Handloom comfort for rooms that look like a moodboard and feel like
-            a hug. No cart yet — just the vibe.
+            Handloom only — each weave on its own page. No cart yet, just the
+            craft.
           </p>
         </div>
         <div className="flex flex-wrap gap-6 text-sm text-mist/70">
-          <Link href="/collections" className="hover:text-matcha">
-            Collections
+          <Link href="/handloom" className="hover:text-matcha">
+            Handloom
           </Link>
           <Link href="/journal" className="hover:text-matcha">
             Journal

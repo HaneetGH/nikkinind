@@ -10,12 +10,15 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { designHref } from "@/lib/designs";
 import type { ContentStore, Design, UpdatePost } from "@/lib/types";
 
 const emptyDesign = {
   title: "",
   collection: "",
-  category: "Bedsheet",
+  category: "Handloom Bedsheet",
+  loom: "",
+  origin: "",
   summary: "",
   detail: "",
   accent: "#C5D5A8",
@@ -127,6 +130,8 @@ export function StudioApp() {
       title: design.title,
       collection: design.collection,
       category: design.category,
+      loom: design.loom,
+      origin: design.origin,
       summary: design.summary,
       detail: design.detail,
       accent: design.accent,
@@ -158,6 +163,8 @@ export function StudioApp() {
             title: designForm.title,
             collection: designForm.collection,
             category: designForm.category,
+            loom: designForm.loom,
+            origin: designForm.origin,
             summary: designForm.summary,
             detail: designForm.detail,
             accent: designForm.accent,
@@ -306,11 +313,11 @@ export function StudioApp() {
             Studio dashboard
           </p>
           <h1 className="mt-2 font-display text-4xl font-bold text-mist md:text-5xl">
-            Publish designs & updates
+            Publish handloom weaves
           </h1>
           <p className="mt-2 max-w-xl text-sm text-mist/60">
-            Changes appear on the public site immediately. Use image URLs for
-            now — ecommerce comes later.
+            Each weave gets its own page at /handloom/[slug]. Handloom only —
+            image URL + craft notes for now.
           </p>
         </div>
           <div className="flex items-center gap-2">
@@ -384,6 +391,7 @@ export function StudioApp() {
                 onChange={(e) =>
                   setDesignForm((f) => ({ ...f, category: e.target.value }))
                 }
+                placeholder="Handloom Bedsheet"
                 required
               />
             </div>
@@ -395,6 +403,30 @@ export function StudioApp() {
                 onChange={(e) =>
                   setDesignForm((f) => ({ ...f, accent: e.target.value }))
                 }
+              />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="loom">Loom</Label>
+              <Input
+                id="loom"
+                value={designForm.loom}
+                onChange={(e) =>
+                  setDesignForm((f) => ({ ...f, loom: e.target.value }))
+                }
+                placeholder="Pit loom"
+                required
+              />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="origin">Origin / craft note</Label>
+              <Input
+                id="origin"
+                value={designForm.origin}
+                onChange={(e) =>
+                  setDesignForm((f) => ({ ...f, origin: e.target.value }))
+                }
+                placeholder="Handwoven in Karur"
+                required
               />
             </div>
             <div className="space-y-2 md:col-span-2">
@@ -488,7 +520,7 @@ export function StudioApp() {
                   <p className="line-clamp-2 text-sm text-mist/55">
                     {design.summary}
                   </p>
-                  <div className="flex gap-2">
+                  <div className="flex flex-wrap gap-2">
                     <Button
                       size="sm"
                       variant="outline"
@@ -496,6 +528,12 @@ export function StudioApp() {
                     >
                       Edit
                     </Button>
+                    <Link
+                      href={designHref(design)}
+                      className="inline-flex h-7 items-center rounded-lg border border-border px-2.5 text-[0.8rem] hover:bg-muted"
+                    >
+                      Open page
+                    </Link>
                     <Button
                       size="sm"
                       variant="destructive"

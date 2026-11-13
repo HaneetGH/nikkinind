@@ -19,11 +19,11 @@ export function CtaBand() {
             Coming soon
           </p>
           <h2 className="mt-4 font-display text-4xl font-bold tracking-tight text-mist md:text-5xl">
-            Shop later. Dream the bed now.
+            Handloom now. Shop later.
           </h2>
           <p className="mt-4 text-base text-mist/65 md:text-lg">
-            Ecommerce is on the way. Until then, explore the weaves, follow the
-            journal, and manage new designs from the Studio dashboard.
+            Ecommerce is on the way. Until then, open each handloom piece, scroll
+            its story, and publish new weaves from Studio.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link

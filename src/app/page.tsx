@@ -1,7 +1,6 @@
-import { AppleProductStory } from "@/components/site/apple-product-story";
 import { CtaBand } from "@/components/site/cta-band";
+import { HandloomGrid } from "@/components/site/handloom-grid";
 import { Hero } from "@/components/site/hero";
-import { HorizontalGallery } from "@/components/site/horizontal-gallery";
 import { JournalPreview } from "@/components/site/journal-preview";
 import { SiteFooter } from "@/components/site/site-footer";
 import { SiteNav } from "@/components/site/site-nav";
@@ -24,12 +23,7 @@ export default async function HomePage() {
           subtitle={content.site.subtitle}
           image={featured.image}
         />
-        <AppleProductStory
-          beats={content.storyBeats}
-          image={featured.image}
-          productName={featured.title}
-        />
-        <HorizontalGallery designs={content.designs} />
+        <HandloomGrid designs={content.designs} />
         <JournalPreview updates={content.updates} />
         <CtaBand />
       </main>
