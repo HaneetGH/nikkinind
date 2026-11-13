@@ -17,9 +17,9 @@ export function SiteNav() {
 
   return (
     <motion.header
-      initial={{ y: -24, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+      initial={{ y: -12 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
       className="fixed inset-x-0 top-0 z-50"
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-5 md:px-8">
